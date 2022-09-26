@@ -1,0 +1,23 @@
+<mat-toolbar class="toolbar mb-3" color="primary">
+  <button mat-icon-button id = "power-button" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>power_settings_new</mat-icon>
+  </button>
+  <span>My App</span>
+  <span class="example-spacer"></span>
+  <button mat-raised-button (click)="openDialog()" color="basic" >
+    <mat-icon>add_to_photos</mat-icon>
+    Add Supervillain
+  </button>
+  <button mat-raised-button color="basic" >
+    <mat-icon>playlist_add</mat-icon>
+    Add Superpower
+  </button>
+</mat-toolbar>
+<div class="container-fluid row row-cols-md-3 row-cols-lg-6 ">
+  
+
+
+<app-villain-card></app-villain-card>
+<app-plus-superpowers></app-plus-superpowers>
+<app-plus-supervillain></app-plus-supervillain>
+</div>
