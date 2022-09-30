@@ -1,7 +1,7 @@
 export interface Villain {
   id:number;
   realName:string;
-  supervillain:string;
+  supervillainName:string;
   imageUrl:string;
   superpowerIds:number[];
 }

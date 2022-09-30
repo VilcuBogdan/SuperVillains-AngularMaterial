@@ -3,6 +3,16 @@
 }
 
 .example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-image: url('https://image.api.playstation.com/vulcan/img/rnd/202011/0204/zHu3tLsbAVgM7fRURgPpVHVs.jpg');
   background-size: cover;
+}
+
+.image-card
+{
+  height: auto;
+  aspect-ratio: 1/1;
+}
+.actions-card-delete {
+  float:right;
+  margin-right: 25px;
 }

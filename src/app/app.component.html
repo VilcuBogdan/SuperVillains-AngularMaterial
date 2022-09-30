@@ -17,7 +17,10 @@
   
 
 
-<app-villain-card></app-villain-card>
+<app-villain-card *ngFor="let villain of villains"
+[villain]="villain">
+  
+</app-villain-card>
 <app-plus-superpowers></app-plus-superpowers>
 <app-plus-supervillain></app-plus-supervillain>
 </div>

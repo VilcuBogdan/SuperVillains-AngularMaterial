@@ -15,10 +15,33 @@ export class VillainService {
   constructor(private http: HttpClient) { 
     this.baseUrl = 'http://localhost:3000';
   }
-  getVillain() :Observable<Villain[]>{
+  getVillains() :Observable<Villain[]>{
     const url = `${this.baseUrl}/villains`;
 
     return this.http.get<Villain[]>(url);
 
   }
+ 
+getVillain(id: number): Observable<Villain> {
+  const url =`${this.baseUrl}/villains/${id}`;
+
+  return this.http.get<Villain>(url);
+}
+
+addVillain(villain: Villain) {
+const url= `${this.baseUrl}/villains`
+
+  return this.http.post<Villain>(url,villain)
+}
+
+deleteVillain(id:number) {
+  const url = `${this.baseUrl}/villains/${id}`
+  return this.http.delete<Villain>(url)
+};
+
+editVillain(villain:Villain,id: number) {
+  const url = `${this.baseUrl}/villains/${id}`
+  return this.http.patch<Villain>(url,villain)
+};
+
 }
