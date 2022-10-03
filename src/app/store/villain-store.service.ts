@@ -30,8 +30,11 @@ this.updateVillain$.subscribe((updatedVillain)=>{
   }
 
 addNewVillain(villain: Villain) {
-  this.addVillain$.next(villain);
-}
+  this.villainService.addVillain(villain).subscribe((newVillain) => {
+   this.addVillain$.next(newVillain); 
+  })}
+  
+
 
 deleteVillain(id : number) {
 this.deleteVillain$.next(id)

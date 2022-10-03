@@ -20,7 +20,8 @@ actionBtn : string = "Save"
   constructor(private formBuilder:FormBuilder,
      private villainService: VillainService,
      @Inject(MAT_DIALOG_DATA) public editData:any,
-     private dialogRef:MatDialogRef<FormVillainComponent>
+     private dialogRef:MatDialogRef<FormVillainComponent>,
+     private villainStoreService:VillainStoreService
      ) { }
 
   ngOnInit(): void {
@@ -39,40 +40,26 @@ actionBtn : string = "Save"
     this.villainForm.controls['imageUrl'].patchValue(this.editData.imageUrl)
    }
   }
-addVillain() {
-  if(!this.editData) {
-    if(this.villainForm.valid) {
-      this.villainService.addVillain(this.villainForm.value)
-      .subscribe({
-  next:(res)=>{
-    alert("Villain added succesfully");
-    this.villainForm.reset();
-    
-  },
-  error:()=> {
-    alert("Error,you made a mistake you stupid Fucker")
-  }
   
-      }) 
+   updateVillain() {
+    this.villainStoreService.updateVillain(this.villainForm.value,this.editData.id)
+    
     }
+
+
+addVillain() {
+  if(!this.editData){
+    if(this.villainForm.valid){ this.villainStoreService.addNewVillain
+      (this.villainForm.value)
+    this.villainForm.reset()
+  this.dialogRef.close()}
    
   }
+
+
+  
+     
   else {
       this.updateVillain()
-    } 
-  
-}
-updateVillain() {
-this.villainService.editVillain(this.villainForm.value,this.editData.id).subscribe({
-  next: (res) => {
-    alert("Update succefully");
-    this.villainForm.reset()
-    this.dialogRef.close('update');
-  },
-  error: () => {
-    alert("Damn broo!!You really stupid!!")
+    } }
   }
-})
-
-}
-}
